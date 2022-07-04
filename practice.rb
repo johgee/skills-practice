@@ -310,7 +310,7 @@
 #   return nil
 # end
 
-# p first_duplicate(��������������������������������������������������������abcdefghhijkkloooop”)
+# p first_duplicate(������������������������������������������������������������������������������������������������������������������������abcdefghhijkkloooop”)
 
 # def first_duplicate_finder(input_string)
 #   previous_char = ""
@@ -494,22 +494,300 @@
 
 # no return necessary
 
-def fizzbuzz(number)
-  index = 1
+# def fizzbuzz(number)
+#   index = 1
 
-  while index <= number
-    if index % 3 == 0
-      p "FIZZ"
-    elsif index % 5 == 0
-      p "BUZZ"
-    elsif index % 3 && index % 5 == 0
-      p "FIZZZBUZZ"
-    else
-      p index
-    end
+#   while index <= number
+#     if index % 3 == 0
+#       p "FIZZ"
+#     elsif index % 5 == 0
+#       p "BUZZ"
+#     elsif index % 3 && index % 5 == 0
+#       p "FIZZZBUZZ"
+#     else
+#       p index
+#     end
 
-    index += 1
+#     index += 1
+#   end
+# end
+
+# p fizzbuzz(3)
+
+# Write a function that gives the Nth number of the Fibonacci Sequence. The Fibonacci sequence begins with 0 and 1, and every number thereafter is the sum of the previous two numbers. So the sequence goes like this:
+
+# 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, and so on until infinity...
+
+# Input: 9
+# Output: 21 (as this is the 9th number of the Fibonacci Sequence)
+
+# first_num = 0
+# sec_num = 1
+
+# 10.times do
+#   puts first_num
+
+#   first_num, sec_num = sec_num, first_num + sec_num
+# end
+
+# def fib(n)
+#   first_num, sec_num = [0, 1]
+#   (n - 1).times do # having the (n-1) will give us the fibonacci sequence with the first number as 0
+#     first_num, sec_num = sec_num, first_num + sec_num # assigning sec_num to first + second
+#   end
+#   puts first_num
+# end
+
+# fib(9)
+
+# def fibonacci(n)
+#   current_num = 0
+#   next_num = 1
+#   fib_num = 1
+
+#   while fib_num < n
+#     new_sum = current_num + next_num
+
+#     current_num = next_num
+#     next_num = new_sum
+
+#     fib_num += 1
+#   end
+
+#   return current_num
+# end
+
+# p fibonacci(9)
+
+# leap year
+
+# Given a year, report if it is a leap year.
+
+# The tricky thing here is that a leap year in the Gregorian calendar occurs:
+
+# on every year that is evenly divisible by 4
+# except every year that is evenly divisible by 100
+# unless the year is also evenly divisible by 400
+# For example, 1997 is not a leap year, but 1996 is. 1900 is not a leap year, but 2000 is.
+
+# If your language provides a method in the standard library that does this look-up, pretend it doesn't exist and implement it yourself.
+
+# input: 1997
+# output: false
+# inout: 1900
+# output: false
+# input: 2000
+# output: true
+
+# pseudocode
+# create a method => leap_year, accepts 'year' parameter
+
+# if/else conditional
+#   the most constrained checks will need to happen first and then the broad ones
+#   => if % 400, elsif % 100, elsif % 4, else false
+
+# def leap_year(year)
+#   if year % 400 == 0
+#     return true
+#   elsif year % 100 == 0
+#     return false
+#   elsif year % 4 == 0
+#     return true
+#   else
+#     return false
+#   end
+# end
+
+# p leap_year(1996)
+
+# multilpe of 3 and 5
+# If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+
+# Find the sum of all the multiples of 3 or 5 below 1000.
+
+# input: % 3, % 5
+# 3, 5, 6, 9, 12, 15, 18, 21, ...
+# output: the sum of all the numebrs
+
+# input: % 3, % 5
+# output: 23
+
+# pseudocode
+# create a method => natural_numbers, 'numbers' pass parameter
+# if you can divide the numbers by 3 or 5
+# add those numbers to get sum (sum = 0)
+
+# def natural_numbers(number)
+#   sum = 0
+#   index = 0
+#   while index < number
+#     if number % 3 == 0
+#       sum << number
+#     elsif number % 5 == 0
+#       sum << number
+#     end
+#     index += 1
+#   end
+#   return sum
+# end
+
+# p natural_numbers(3)
+
+# def natural_numbers(number)
+#   three_index = 3
+#   three_array = []
+#   five_index = 5
+#   five_array = []
+
+#   while three_index < number
+#     three_array << three_index
+#     three_index += 3
+#   end
+
+#   while five_index < number
+#     five_array << five_index
+#     five_index += 5
+#   end
+
+#   return three_array.sum + five_array.sum
+# end
+
+# p natural_numbers(9)
+
+# collatz conjecture
+
+# The Collatz Conjecture or 3x+1 problem can be summarized as follows:
+
+# Take any positive integer n. If n is even, divide n by 2 to get n / 2. If n is odd, multiply n by 3 and add 1 to get 3n + 1. Repeat the process indefinitely. The conjecture states that no matter which number you start with, you will always reach 1 eventually.
+
+# Given a number n, return the number of steps required to reach 1.
+
+# Examples
+# Starting with n = 12, the steps would be as follows:
+
+# 12
+# 6
+# 3
+# 10
+# 5
+# 16
+# 8
+# 4
+# 2
+# 1
+
+# Resulting in 9 steps. So for input n = 12, the return value would be 9.
+
+# pseudocode
+# starting with n = 12, the steps would be as follows:
+# -> 12, 6, 3, 10, 5, 16, 8, 4, 2, 1 = 9 results
+
+# input: 12
+# output: 9
+
+# pseudocode
+# create a method => collatz, accepts "number" parameter
+# create a variable => steps = 0
+
+# while loop
+# inside the loop:
+# => if number % 2, set number equal to number / 2
+# => else, set number equal to number x3 + 1
+# => increment the step varaiable by 1 each iteration of the loop
+
+# return 'steps
+
+# def collatz(number)
+#   steps = 0
+
+#   while number != 1
+#     if number % 2 == 0
+#       number = number / 2
+#     else
+#       number = (number * 3) + 1
+#     end
+
+#     steps += 1
+#   end
+
+#   return steps
+# end
+
+# p collatz(2)
+
+# largest palindrome product
+# A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+
+# Find the largest palindrome made from the product of two 3-digit numbers.
+
+# longest common prefix
+
+# def longest_common_prefix(words_array)
+#   current_longest_prefix = ""
+#   letter_index = 0
+#   while true
+#     word_index = 1
+#     while word_index < words_array.length
+#       current_letter = words_array[0][letter_index]
+#       return current_longest_prefix if current_letter.nil? || words_array[word_index][letter_index] != current_letter
+
+#       word_index += 1
+#     end
+
+#     current_longest_prefix << current_letter
+#     letter_index += 1
+#   end
+# end
+
+# p longest_common_prefix(["flower", "flow", "flight"])
+
+# complete the data I
+# Given an array of social media posts and a hash of users, return a list of posts (as an array of hashes) that replaces the submitted_by id number as the person's actual name.
+
+# For example, given this array of posts (note that the submitted_by is an id number):
+
+input_posts = [
+  { title: "Me Eating Pizza", submitted_by: 231, likes: 1549 },
+  { title: "i never knew how cool i was until now", submitted_by: 989, likes: 3 },
+  { title: "best selfie evar!!!", submitted_by: 111, likes: 1092 },
+  { title: "Mondays are the worst", submitted_by: 403, likes: 644 },
+]
+
+# And this hash of users (the key is the id number and the value is the user's real name):
+
+users = { 403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q." }
+
+# Return the array of posts as follows:
+
+# [
+# {title: 'Me Eating Pizza', submitted_by: "Joelle P.", likes: 1549},
+# {title: 'i never knew how cool i was until now', submitted_by: "Lyndon Johnson", likes: 3},
+# {title: 'best selfie evar!!!', submitted_by: "Patti Q.", likes: 1092},
+# {title: 'Mondays are the worst', submitted_by: "Aunty Em", likes: 644}
+# ]
+
+# define a method
+# iterate through array of posts with each loop
+# itereate through post hash |k , v|
+# post[:submitted_by] = value of that integer in users hash
+# shovel revised hash in
+
+def posts_with_user_names(posts, users)
+  revised_posts = []
+  posts.each do |post|
+    post[:submitted_by] = users[post[:submitted_by]]
+    revised_posts << post
+  end
+  revised_posts
+end
+
+p posts_with_user_names(input_posts, users)
+
+def posts_with_user_names(posts, users)
+  posts.map do |post|
+    post[:submitted_by] = users[post[:submitted_by]]
+    post
   end
 end
 
-p fizzbuzz(3)
+p posts_with_user_names(input_posts, users)
