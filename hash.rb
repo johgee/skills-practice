@@ -1,14 +1,21 @@
 # 1. Make a hash to store a person's first name, last name, and email address. Then print each attribute on separate lines.
+# person = { "first" => "grace", "last" => "joh", "email" => "test@test.com" }
 
 # 2. Make an array of hashes to store the first name and last name for 3 different people. Then print out the first person's info.
+# person1 = { "first" => "grace", "last" => "joh" }
+# person2 = { "first" => "eunice", "last" => "joh" }
+# person3 = { "first" => "maddy", "last" => "lee" }
 
 # 3. Make a hash to store prices for 3 different menu items. Then add a new menu item and price and print the hash to see the result.
+# menu = { "hamburger" => 5, "fries" => 1, "juice" => 2 }
 
 # 4. Make a hash to store a book's title, author, number of pages, and language. Then print each attribute on separate lines.
+# book = { "title" => "harry potter", "pages" => 305, "language" => "english" }
 
 # 5. Make an array of hashes to store the title and author for 3 different books. Then print out the third book's author.
 
 # 6. Make a hash to store 3 different states and their captitals. Then add a new state and capital and print the hash to see the result.
+# cities = { "new york" => "new york", "illinois" => "chicago", "nevada" => "las vegas" }
 
 # 7. Make a hash to store a laptop's brand, model, and year. Then print each attribute on separate lines.
 
