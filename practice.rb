@@ -46,7 +46,7 @@
 #     sum += array[index]
 #     index += 1
 #   end
-#   return sum
+#   sum
 # end
 
 # p total([1, 2, 3, 4])
@@ -65,7 +65,7 @@
 #     end
 #     index += 1
 #   end
-#   return small
+#   small
 # end
 
 # p smaller([99, 101, 88, 4, 2000, 50])
@@ -82,7 +82,7 @@
 #     new_array << array[index] * 2
 #     index += 1
 #   end
-#   return new_array
+#   new_array
 # end
 
 # p doubled([4, 2, 5, 99, -4])
@@ -101,7 +101,7 @@
 #     end
 #     index += 1
 #   end
-#   return max
+#   max
 # end
 
 # p greatest([5, 17, -4, 20, 12])
@@ -120,7 +120,7 @@
 #     total = total * array[index]
 #     index += 1
 #   end
-#   return total
+#   total
 # end
 
 # p product([1, 2, 3, 4])
@@ -141,6 +141,7 @@
 # p new_array
 
 # reverse array
+
 # def reversed(array)
 #   new_array = []
 #   index = array.length - 1
@@ -148,26 +149,7 @@
 #     new_array << array[index]
 #     index -= 1
 #   end
-#   return new_array
-# end
-
-# p reversed([5, 4, 3, 2, 1])
-
-# input_array = [1, 2, 3, 4, 5]
-# index = input_array.length - 1
-# input_array[index]
-# index2 = -1
-# input_array[index2]
-# while index2 > -input_array.length
-
-# def reversed(array)
-#   output = []
-#   index = array.length - 1
-#   while index < array[index]
-#     output << array[index]
-#     index -= 1
-#   end
-#   return output
+#   new_array
 # end
 
 # p reversed([1, 2, 3, 4, 5])
@@ -189,27 +171,10 @@
 #     output << array[index]
 #     index = index + array[index]
 #   end
-#   return output
+#   output
 # end
 
 # p next_number([2, 1, 3, 2, 5, 1, 2, 6, 2, 7, 1, 5, 6, 3, 2, 6, 2, 1, 2])
-
-# Write a function that returns the reverse of a given string.
-
-# Input: “abcde”
-# Output: “edcba”
-
-# def reversed(string)
-#   output = ""
-#   index = string.length - 1
-#   while index >= 0 # wihle loop will run until it hits the beginning of the array
-#     output << string[index]
-#     index -= 1
-#   end
-#   return output
-# end
-
-# p reversed("hello")
 
 # SHOW ME THE MONEY
 # Given a string, write a function that returns true if the “$” character is contained within the string or false if it is not.
@@ -237,7 +202,7 @@
 #       return true
 #     end
 #   end
-#   return false
+#   false
 # end
 
 # p dollar_sign("abcdefghijklmnopqrstuvwxyz")
@@ -268,14 +233,14 @@
 #   index = 0
 
 #   while index < string.length
-#     if index % 2 == 0
+#     if index % 2 != 0
 #       capital << string[index].downcase
 #     else
 #       capital << string[index].upcase
 #     end
 #     index += 1
 #   end
-#   return capital
+#   capital
 # end
 
 # p capitalized("hello")
@@ -307,10 +272,10 @@
 #       first = char
 #     end
 #   end
-#   return nil
+#   nil
 # end
 
-# p first_duplicate(������������������������������������������������������������������������������������������������������������������������abcdefghhijkkloooop”)
+# p first_duplicate("abcdefghhijkkloooop")
 
 # def first_duplicate_finder(input_string)
 #   previous_char = ""
@@ -367,7 +332,7 @@
 #     end_index -= 1
 #   end
 
-#   return true
+#   true
 # end
 
 # p backward("racecar")
@@ -410,7 +375,7 @@
 #     index += 1
 #   end
 
-#   return diff_count
+#   diff_count
 # end
 
 # p hamming("ABCDEFG", "ABCXE0G")
@@ -462,6 +427,7 @@
 # p reverse_words!(“popcorn is so cool isn’t it yeah i thought so”)
 
 # Write a function that returns whether a given number is a prime number.
+
 # def prime_number(number)
 #   index = 2
 
@@ -471,7 +437,7 @@
 #     end
 #     index += 1
 #   end
-#   return true
+#   true
 # end
 
 # p prime_number(4)
@@ -512,9 +478,9 @@
 #   end
 # end
 
-# p fizzbuzz(3)
+# p fizzbuzz(20)
 
-# Write a function that gives the Nth number of the Fibonacci Sequence. The Fibonacci sequence begins with 0 and 1, and every number thereafter is the sum of the previous two numbers. So the sequence goes like this:
+# Write a function that gives the Nth number of the Fibon acci Sequence. The Fibonacci sequence begins with 0 and 1, and every number thereafter is the sum of the previous two numbers. So the sequence goes like this:
 
 # 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, and so on until infinity...
 
@@ -746,16 +712,16 @@
 
 # For example, given this array of posts (note that the submitted_by is an id number):
 
-input_posts = [
-  { title: "Me Eating Pizza", submitted_by: 231, likes: 1549 },
-  { title: "i never knew how cool i was until now", submitted_by: 989, likes: 3 },
-  { title: "best selfie evar!!!", submitted_by: 111, likes: 1092 },
-  { title: "Mondays are the worst", submitted_by: 403, likes: 644 },
-]
+# input_posts = [
+#   { title: "Me Eating Pizza", submitted_by: 231, likes: 1549 },
+#   { title: "i never knew how cool i was until now", submitted_by: 989, likes: 3 },
+#   { title: "best selfie evar!!!", submitted_by: 111, likes: 1092 },
+#   { title: "Mondays are the worst", submitted_by: 403, likes: 644 },
+# ]
 
-# And this hash of users (the key is the id number and the value is the user's real name):
+# # And this hash of users (the key is the id number and the value is the user's real name):
 
-users = { 403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q." }
+# users = { 403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q." }
 
 # Return the array of posts as follows:
 
@@ -772,22 +738,193 @@ users = { 403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 =>
 # post[:submitted_by] = value of that integer in users hash
 # shovel revised hash in
 
-def posts_with_user_names(posts, users)
-  revised_posts = []
-  posts.each do |post|
-    post[:submitted_by] = users[post[:submitted_by]]
-    revised_posts << post
-  end
-  revised_posts
-end
+# def posts_with_user_names(posts, users)
+#   revised_posts = []
+#   posts.each do |post|
+#     post[:submitted_by] = users[post[:submitted_by]]
+#     revised_posts << post
+#   end
+#   revised_posts
+# end
 
-p posts_with_user_names(input_posts, users)
+# p posts_with_user_names(input_posts, users)
 
-def posts_with_user_names(posts, users)
-  posts.map do |post|
-    post[:submitted_by] = users[post[:submitted_by]]
-    post
-  end
-end
+# def posts_with_user_names(posts, users)
+#   posts.map do |post|
+#     post[:submitted_by] = users[post[:submitted_by]]
+#     post
+#   end
+# end
 
-p posts_with_user_names(input_posts, users)
+# p posts_with_user_names(input_posts, users)
+
+# array mesh I
+
+# Given two arrays of strings, return a new string that contains every combination of a string from the first array concatenated with a string from the second array.
+
+# Input: ["a", "b", "c"], ["d", "e", "f", "g"]
+# Output: ["ad", "ae", "af", "ag", "bd", "be", "bf", "bg", "cd", "ce", "cf", "cg"]
+
+# pseudocode
+# create a method => first_sec, 'array' parameter
+# start with two indices to compare two arrays => index1 and index2
+# create an empty array to shovel letter together = new_array
+# take the first letter of the array and first letter of second array
+# index of first aray + index of second array and shovel into empty array
+
+# def first_sec(array, array2)
+#   index1 = 0
+#   index2 = 0
+#   new_array = []
+#   while index1 < array.length
+#     new_array << array[index1]
+#     index1 += 1
+#   end
+#   while index2 < array2.length
+#     new_array << array2[index2]
+#     index2 += 1
+#   end
+#   new_array.reduce(&:+)
+# end
+
+# p first_sec(["a", "b", "c"], ["d", "e", "f", "g"])
+
+# create a method => array_mesh, accepts two parameters "array1" and "array2"
+# create a meshed_array variable and initially set it to an empty array
+
+# two each loops
+# -> inside the inner loop, we combine the element from the outer loop, with the ineer loop
+# => add the combined element to the "meshed_array" variable
+
+# return the "meshed_array"
+
+# def array_mesh(array1, array2)
+#   meshed_array = []
+
+#   array1.each do |ele1|
+#     array2.each do |ele2|
+#       meshed_array << ele1 + ele2
+#     end
+#   end
+
+#   meshed_array
+# end
+
+# p array_mesh(["a", "b", "c"], ["d", "e", "f", "g"])
+
+# array mesh II
+# Given ONE array of strings, return a new array that contains every combination of each string with every other string in the array.
+
+# Input: ["a", "b", "c", "d"]
+# Output: ["ab", "ac", "ad", "ba", "bc", "bd", "ca", "cb", "cd", "da", "db", "dc"]
+
+# def array_mesh(array)
+#   meshed_array = []
+
+#   array.each do |ele|
+#     array.each do |ele2|
+#       meshed_array << ele + ele2
+#     end
+#   end
+#   meshed_array
+# end
+
+# p array_mesh(["a", "b", "c", "d"])
+
+# largest product
+
+# Find the largest product of any two numbers within a given array.
+
+# Input: [5, -2, 1, -9, -7, 2, 6]
+# Output: 63 (-9 * -7)
+
+# pseudocode
+# create a method called 'largest_product' and 'array' parameter
+# create empty string equal to 1
+#
+
+# def largest_product(array) # this is when i'm trying to find the maximum number
+#   largest = array[0]
+#   index = 0
+
+#   while index < array.length
+#     if array[index] > largest
+#       largest = array[index]
+#     end
+#     index += 1
+#   end
+#   return largest
+# end
+
+# p largest_product([5, -2, 1, -9, -7, 2, 6])
+
+# pseudocode
+# sort the array from smallest to largest
+# find the maximum and second biggest
+# multiply them together
+
+# def largest_product(array)
+#   order = array.sort
+#   index = 0
+#   while index < array.length
+#     order[array.length - 1] * order[array.length - 2]
+#     index += 1
+#   end
+#   order
+# end
+
+# [5, -2, 1, -9, -7, 2, 6].sort.last(2).sum
+
+# p largest_product([5, -2, 1, -9, -7, 2, 6])
+
+# two sum I
+
+# Given an array of numbers, return a new array containing just two numbers (from the original array) that add up to the number 10. If there are no two numbers that add up to 10, return false.
+
+# Specifically use nested loops to solve this exercise even though there are other approaches as well.
+
+# Input: [2, 5, 3, 1, 0, 7, 11]
+# Output: [3, 7]
+
+# Input: [1, 2, 3, 4, 5]
+# Output: false (While 1, 2, 3, and 4 altogether add up to 10, we're seeking just one pair of numbers.)
+
+# pseudocode
+# create a method -> sum_of_two, 'array' parameter
+# new_array = []
+# index = 0, index2 = 0 to compare two different numbers
+# if two numbers equal == 10, we return
+#
+
+# def sum_of_two(array)
+#   index = 0
+#   index2 = 1
+#   new_array = []
+#   new_array2 = []
+#   while index
+# end
+
+# p sum_of_two([2, 5, 3, 1, 0, 7, 11])
+
+# define indexes for two while loops (i, j) starting at i = 0, j set at i + 1
+# for every index i => calcualte the sum of i and each remaining number j
+# check the sum, against the target of 10
+# if found => return the two numebrs at i, j
+# if we get to the end of the array with no match => output false
+
+# def two_sum(numbe
+# input: [4, 5, 6]
+
+# i = 0; j = 1
+# numbers[0] = 4
+# numbers[1] = 5
+# sum = 9
+
+# i = 0; j = 2
+# numbers[0] = 4
+# numbers[2] = 6
+# sum = 10 => return [4, 6]
+
+# input : [0, 0]
+
+# O(N^2)
