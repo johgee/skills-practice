@@ -480,7 +480,7 @@
 
 # p fizzbuzz(20)
 
-# Write a function that gives the Nth number of the Fibon acci Sequence. The Fibonacci sequence begins with 0 and 1, and every number thereafter is the sum of the previous two numbers. So the sequence goes like this:
+# Write a function that gives the Nth number of the Fibonacci Sequence. The Fibonacci sequence begins with 0 and 1, and every number thereafter is the sum of the previous two numbers. So the sequence goes like this:
 
 # 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, and so on until infinity...
 
@@ -490,7 +490,7 @@
 # first_num = 0
 # sec_num = 1
 
-# 10.times do
+# 9.times do
 #   puts first_num
 
 #   first_num, sec_num = sec_num, first_num + sec_num
@@ -504,7 +504,7 @@
 #   puts first_num
 # end
 
-# fib(9)
+# p fib(9)
 
 # def fibonacci(n)
 #   current_num = 0
@@ -520,7 +520,7 @@
 #     fib_num += 1
 #   end
 
-#   return current_num
+#   current_num
 # end
 
 # p fibonacci(9)
@@ -564,7 +564,7 @@
 #   end
 # end
 
-# p leap_year(1996)
+# p leap_year(2000)
 
 # multilpe of 3 and 5
 # If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
@@ -583,7 +583,7 @@
 # if you can divide the numbers by 3 or 5
 # add those numbers to get sum (sum = 0)
 
-# def natural_numbers(number)
+# def natural_numbers(number) # => my attempt
 #   sum = 0
 #   index = 0
 #   while index < number
@@ -615,10 +615,10 @@
 #     five_index += 5
 #   end
 
-#   return three_array.sum + five_array.sum
+#   three_array.sum + five_array.sum
 # end
 
-# p natural_numbers(9)
+# p natural_numbers(10)
 
 # collatz conjecture
 
@@ -679,12 +679,37 @@
 #   return steps
 # end
 
-# p collatz(2)
+# p collatz(12)
 
 # largest palindrome product
 # A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 
 # Find the largest palindrome made from the product of two 3-digit numbers.
+
+# def largest_palindrome
+#   base_num = 100
+#   palindromes = []
+
+#   while base_num < 1000
+#     flex_num = 100
+
+#     while flex_num < 1000
+#       product = base_num * flex_num
+
+#       if product.digits == product.digits.reverse
+#         palindromes << product
+#       end
+
+#       flex_num += 1
+#     end
+
+#     base_num += 1
+#   end
+
+#   palindromes.max
+# end
+
+# p largest_palindrome
 
 # longest common prefix
 
@@ -772,7 +797,7 @@
 # take the first letter of the array and first letter of second array
 # index of first aray + index of second array and shovel into empty array
 
-# def first_sec(array, array2)
+# def first_sec(array, array2) # not correct
 #   index1 = 0
 #   index2 = 0
 #   new_array = []
@@ -818,6 +843,7 @@
 # Input: ["a", "b", "c", "d"]
 # Output: ["ab", "ac", "ad", "ba", "bc", "bd", "ca", "cb", "cd", "da", "db", "dc"]
 
+# first one is WRONG! => my answer ..
 # def array_mesh(array)
 #   meshed_array = []
 
@@ -826,6 +852,26 @@
 #       meshed_array << ele + ele2
 #     end
 #   end
+#   meshed_array
+# end
+
+# p array_mesh(["a", "b", "c", "d"])
+
+# def array_mesh(input_array)
+#   meshed_array = []
+
+#   input_array.each_with_index do |base_ele, base_index|
+#     suffix_index = 0
+
+#     while suffix_index < input_array.length
+#       if base_index != suffix_index
+#         meshed_array << base_ele + input_array[suffix_index]
+#       end
+
+#       suffix_index += 1
+#     end
+#   end
+
 #   meshed_array
 # end
 
@@ -843,7 +889,7 @@
 # create empty string equal to 1
 #
 
-# def largest_product(array) # this is when i'm trying to find the maximum number
+# def largest_product(array) # this is when i'm trying to find the maximum number but i found the biggest number instead
 #   largest = array[0]
 #   index = 0
 
@@ -858,12 +904,37 @@
 
 # p largest_product([5, -2, 1, -9, -7, 2, 6])
 
+def largest_product(numbers)
+  greatest_product = nil
+  base_index = 0
+
+  while base_index < numbers.length
+    multiplier_index = base_index + 1
+
+    while multiplier_index < numbers.length
+      product = numbers[base_index] * numbers[multiplier_index]
+
+      if !greatest_product || product > greatest_product
+        greatest_product = product
+      end
+
+      multiplier_index += 1
+    end
+
+    base_index += 1
+  end
+
+  greatest_product
+end
+
+p largest_product([5, -2, 1, -9, -7, 2, 6])
+
 # pseudocode
 # sort the array from smallest to largest
 # find the maximum and second biggest
 # multiply them together
 
-# def largest_product(array)
+# def largest_product(array) # this lists the numbers in the array
 #   order = array.sort
 #   index = 0
 #   while index < array.length
@@ -873,7 +944,7 @@
 #   order
 # end
 
-# [5, -2, 1, -9, -7, 2, 6].sort.last(2).sum
+# # [5, -2, 1, -9, -7, 2, 6].sort.last(2).sum
 
 # p largest_product([5, -2, 1, -9, -7, 2, 6])
 
@@ -912,7 +983,7 @@
 # if found => return the two numebrs at i, j
 # if we get to the end of the array with no match => output false
 
-# def two_sum(numbe
+# def two_sum(number)
 # input: [4, 5, 6]
 
 # i = 0; j = 1
@@ -928,3 +999,90 @@
 # input : [0, 0]
 
 # O(N^2)
+
+# def two_sum(numbers)
+#   i = 0
+#   j = 1
+
+#   while i < numbers.length - 1
+#     j = i + 1
+#     while j < numbers.length
+#       return [numbers[i], numbers[j]] if numbers[i] + numbers[j] == 10
+
+#       j += 1
+#     end
+#     i += 1
+#   end
+#   false
+# end
+
+# p two_sum([2, 5, 3, 1, 0, 7, 11])
+# p two_sum([1, 2, 3, 4, 5])
+
+# Given two sorted arrays, merge the second array into the first array while ensuring that the first array remains sorted. Do not use any built-in sort methods.
+
+# Input :
+# A : [1, 5, 8]
+# B : [6, 9]
+
+# Modified A : [1, 5, 6, 8, 9]
+
+# pseudocode
+# create a method => merge_two_arrays, 'array1' array2' parameter
+# merged_array = []
+# index1 = 0
+# index2 = 0
+
+# while loop to iterate through the first array
+# shovel first array into merged_array
+# increment index
+# nested loop
+# shovel second array into the merged_array
+# increment index
+# end
+# end
+
+# output: [1, 5, 8, 6, 9]
+
+# def merge_two_arrays(array1, array2)
+#   merged_array = []
+#   index1 = 0
+#   index2 = 0
+
+#   while index1 < array1.length
+#     merged_array << array1[index1]
+#     index1 += 1
+#     while index2 < array2.length
+#       merged_array << array2[index2]
+#       index2 += 1
+#     end
+#   end
+# end
+
+# p merge_two_arrays([1, 5, 8], [6, 9])
+
+# pseudocode
+
+# method, (array1, array2)
+# merged_array = []
+# index1 = 0
+# index2 = 0
+
+# while loop to iterate through the first index array1[index]
+#
+
+# def merge_two_arrays(array1, array2)
+#   merged_array = []
+#   index = 0
+#   # index2 = 0
+
+#   while index < array1.length
+#     if merged_array[index] < array2[index]
+#       merged_array << array2[index]
+#     end
+#     index += 1
+#   end
+#   merged_array
+# end
+
+# p merge_two_arrays([1, 5, 8], [6, 9])
