@@ -1,84 +1,86 @@
-# Given a string, find the most commonly occurring letter.
+# Given a string, write a function that returns the first occurence of two duplicate characters in a row, and return the duplicated character.
 
-# Input: “peter piper picked a peck of pickled peppers”
-# Output: “p”
+# Input: “abcdefghhijkkloooop”
+# Output: “h”
 
-# input: "egg easy east"
-# output: "e"
+# input: "asdfghjkaa"
+# output: "a"
 
-# input: "abc"
-# output: "abc"
+# input: "asd  awqre"
+# output: " "
 
-# input: "abc1123"
-# output: 1
+# input: "1233678"
+# output: 3
+
+# input: "qwertyu"
+# output: false
+
+# input: "aaa"
+# output: "a"
+
+# input: "aabb"
+# output: "a"
 
 # input: ""
-# output: ""
+# output: false
 
-# create a method -> common_letter, 'string' parameter
-# create a most_common_letter = ""
-# current_char = ""
+# method => first_duplicate, 'string'
+# duplicate_letter = ""
 # index = 0
-# letter_count = 0
-# most_common_letter_count = 0
-# while loop to iterate through the string
-# if current_char equals string[index]
-# increment letter_count by one
-# if most_common_letter_count < letter_count
-# most_common_letter_count equal letter_count
-# most_common_letter equal current_char
+# first_char_index = 0
+# second_char_index = 1
+
+# while loop iterate through string index < string.length
+# if string[first_char_index] equals string[second_char_index]
+# add it to duplicate_letter
+# return duplicate_letter
 # end
+# increment index
+# first_char_index += 1
+# second_char_index += 1
+# false
 # end
-# increment by 1 index
 
-# return create a most_common_letter = "
-# end
-
-def common_letter(string)
-  most_common_letter = ""
-  most_common_letter_count = 0
-  letter_count = 0
-  index = 0
-  current_char = string[index]
-  while index < string.length
-    if current_char == most_common_letter
-      most_common_letter = current_char
-      if letter_count == most_common_letter_count
-        most_common_letter_count = letter_count
-      end
-      index += 1
-    end
-  end
-  most_common_letter
-end
-
-p common_letter("peter piper picked a peck of pickled peppers")
-
-# count how many there are in a hash
-# { "p" => 9, "e" => 8, "t" => 1, "r" => 3, "i" => 3, " " => 7, "c" => 3, "d" => 2, "a" => 1, "o" => 1, "f" => 1, "l" => 1, "s" => 1 }
-
-# def frequent_letter(string)
-#   letter_counts = {}
+# def first_duplicate(string)
+#   duplicate_letter = ""
 #   index = 0
-#   most_frequent_letter = ""
-#   most_frequent_count = 0
+#   first_char_index = 0
+#   second_char_index = 1
 
 #   while index < string.length
-#     if letter_counts[string[index]]
-#       letter_counts[string[index]] += 1
-#     else
-#       letter_counts[string[index]] = 1
+#     if string[first_char_index] == string[second_char_index]
+#       duplicate_letter = string[first_char_index]
+#       return duplicate_letter
 #     end
-
-#     if letter_counts[string[index]] > most_frequent_count
-#       most_frequent_count = letter_counts[string[index]]
-#       most_frequent_letter = string[index]
-#     end
-
 #     index += 1
+#     first_char_index += 1
+#     second_char_index += 1
 #   end
-
-#   return most_frequent_letter
+#   false
 # end
 
-# p frequent_letter("peter piper picked a peck of pickled peppers")
+# p first_duplicate("abcdefghhijkkloooop")
+# p first_duplicate("asdfghjkaa")
+# p first_duplicate(" ")
+# p first_duplicate("qwertyu")
+# p first_duplicate("abcdd")
+
+# Write a function that accepts an array of numbers, and returns an array of the products of every pair of numbers from the array.
+# Input: [3, 4, 5, 6]
+# Output: [12, 15, 18, 20, 24, 30]
+# Explanation: (3 * 4, 3 * 5, 3 * 6, 4 * 5, 4 * 6, 5 * 6)
+
+
+product = []
+index = 0 
+index2 = 1
+
+
+while index ...
+  while index2 ... 
+    if array[index2] != array[index2]
+     product << array[index] * array[index2] 
+    end 
+    index2 += 1
+  end 
+  index += 1 

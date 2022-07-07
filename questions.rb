@@ -1,4 +1,3 @@
-
 # array mesh II (how do i google this & understand steps)
 # Given ONE array of strings, return a new array that contains every combination of each string with every other string in the array.
 
@@ -27,14 +26,14 @@
 #   greatest_product = nil
 #   base_index = 0
 
-#   while base_index < numbers.length
+#   while base_index < numbers.length # going through all the numbers
 #     multiplier_index = base_index + 1
 
-#     while multiplier_index < numbers.length
-#       product = numbers[base_index] * numbers[multiplier_index]
+#     while multiplier_index < numbers.length # multiplying all the numbers
+#       product = numbers[base_index] * numbers[multiplier_index] # product = 5 * -2 = -10 // 5 * 1 = 5 // -45 //// -2 * -2 = -4
 
 #       if !greatest_product || product > greatest_product
-#         greatest_product = product
+#         greatest_product = product # greatest_product = -10 // 5 // 5 .... 10 // 30
 #       end
 
 #       multiplier_index += 1
@@ -48,8 +47,7 @@
 
 # p largest_product([5, -2, 1, -9, -7, 2, 6])
 
-
-# largest palindrome product (how?)
+# largest palindrome product (how?) [racecar] = true
 # A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
 
 # Find the largest palindrome made from the product of two 3-digit numbers.
@@ -79,7 +77,7 @@
 
 # p largest_palindrome
 
-index += 1 inside the loop & outside the loop / differences 
+# index += 1 inside the loop & outside the loop / differences
 
 # Given two sorted arrays, merge the second array into the first array while ensuring that the first array remains sorted. Do not use any built-in sort methods.
 
@@ -88,4 +86,3 @@ index += 1 inside the loop & outside the loop / differences
 # B : [6, 9]
 
 # Modified A : [1, 5, 6, 8, 9]
-

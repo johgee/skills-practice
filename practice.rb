@@ -904,30 +904,30 @@
 
 # p largest_product([5, -2, 1, -9, -7, 2, 6])
 
-def largest_product(numbers)
-  greatest_product = nil
-  base_index = 0
+# def largest_product(numbers)
+#   greatest_product = nil
+#   base_index = 0
 
-  while base_index < numbers.length
-    multiplier_index = base_index + 1
+#   while base_index < numbers.length
+#     multiplier_index = base_index + 1
 
-    while multiplier_index < numbers.length
-      product = numbers[base_index] * numbers[multiplier_index]
+#     while multiplier_index < numbers.length
+#       product = numbers[base_index] * numbers[multiplier_index]
 
-      if !greatest_product || product > greatest_product
-        greatest_product = product
-      end
+#       if !greatest_product || product > greatest_product
+#         greatest_product = product
+#       end
 
-      multiplier_index += 1
-    end
+#       multiplier_index += 1
+#     end
 
-    base_index += 1
-  end
+#     base_index += 1
+#   end
 
-  greatest_product
-end
+#   greatest_product
+# end
 
-p largest_product([5, -2, 1, -9, -7, 2, 6])
+# p largest_product([5, -2, 1, -9, -7, 2, 6])
 
 # pseudocode
 # sort the array from smallest to largest
@@ -1061,6 +1061,29 @@ p largest_product([5, -2, 1, -9, -7, 2, 6])
 
 # p merge_two_arrays([1, 5, 8], [6, 9])
 
+def merge_two_arrays(array1, array2)
+  merged_array = []
+  index1 = 0
+  index2 = 0
+
+  while merged_array.length < (array1.length + array2.length)
+    puts array1[index1]
+    puts array2[index2]
+    if array2[index2] == nil
+      merged_array << array1[index1]
+    elsif array1[index1] < array2[index2]
+      merged_array << array1[index1]
+      index1 += 1
+    else
+      merged_array << array2[index2]
+      index2 += 1
+    end
+  end
+  merged_array
+end
+
+p merge_two_arrays([1, 5, 8], [6, 9])
+
 # pseudocode
 
 # method, (array1, array2)
@@ -1086,3 +1109,88 @@ p largest_product([5, -2, 1, -9, -7, 2, 6])
 # end
 
 # p merge_two_arrays([1, 5, 8], [6, 9])
+
+# Given a string, find the most commonly occurring letter.
+
+# Input: “peter piper picked a peck of pickled peppers”
+# Output: “p”
+
+# input: "egg easy east"
+# output: "e"
+
+# input: "abc"
+# output: "abc"
+
+# input: "abc1123"
+# output: 1
+
+# input: ""
+# output: ""
+
+# create a method -> common_letter, 'string' parameter
+# create a most_common_letter = ""
+# current_char = ""
+# index = 0
+# letter_count = 0
+# most_common_letter_count = 0
+# while loop to iterate through the string
+# if current_char equals string[index]
+# increment letter_count by one
+# if most_common_letter_count < letter_count
+# most_common_letter_count equal letter_count
+# most_common_letter equal current_char
+# end
+# end
+# increment by 1 index
+
+# return create a most_common_letter = "
+# end
+
+# def common_letter(string)
+#   most_common_letter = ""
+#   most_common_letter_count = 0
+#   letter_count = 0
+#   index = 0
+#   current_char = string[index]
+#   while index < string.length
+#     if current_char == most_common_letter
+#       most_common_letter = current_char
+#       if letter_count == most_common_letter_count
+#         most_common_letter_count = letter_count
+#       end
+#       index += 1
+#     end
+#   end
+#   most_common_letter
+# end
+
+# p common_letter("peter piper picked a peck of pickled peppers")
+
+# count how many there are in a hash
+hash = { "p" => 9, "e" => 8, "t" => 1, "r" => 3, "i" => 3, " " => 7, "c" => 3, "d" => 2, "a" => 1, "o" => 1, "f" => 1, "l" => 1, "s" => 1 }
+
+def frequent_letter(string)
+  letter_counts = {}
+  index = 0
+  most_frequent_letter = ""
+  most_frequent_count = 0
+
+  while index < string.length
+    if letter_counts[string[index]]
+      letter_counts[string[index]] += 1
+    else
+      letter_counts[string[index]] = 1
+    end
+
+    if letter_counts[string[index]] > most_frequent_count
+      most_frequent_count = letter_counts[string[index]]
+      most_frequent_letter = string[index]
+    end
+
+    index += 1
+  end
+
+  return most_frequent_letter
+end
+
+p frequent_letter("peter piper picked a peck of pickled peppers")
