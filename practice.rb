@@ -711,27 +711,6 @@
 
 # p largest_palindrome
 
-# longest common prefix
-
-# def longest_common_prefix(words_array)
-#   current_longest_prefix = ""
-#   letter_index = 0
-#   while true
-#     word_index = 1
-#     while word_index < words_array.length
-#       current_letter = words_array[0][letter_index]
-#       return current_longest_prefix if current_letter.nil? || words_array[word_index][letter_index] != current_letter
-
-#       word_index += 1
-#     end
-
-#     current_longest_prefix << current_letter
-#     letter_index += 1
-#   end
-# end
-
-# p longest_common_prefix(["flower", "flow", "flight"])
-
 # complete the data I
 # Given an array of social media posts and a hash of users, return a list of posts (as an array of hashes) that replaces the submitted_by id number as the person's actual name.
 
@@ -1044,7 +1023,7 @@
 
 # output: [1, 5, 8, 6, 9]
 
-# def merge_two_arrays(array1, array2)
+# def merge_two_arrays(array1, array2) # not right
 #   merged_array = []
 #   index1 = 0
 #   index2 = 0
@@ -1061,28 +1040,28 @@
 
 # p merge_two_arrays([1, 5, 8], [6, 9])
 
-def merge_two_arrays(array1, array2)
-  merged_array = []
-  index1 = 0
-  index2 = 0
+# def merge_two_arrays(array1, array2) # not right
+#   merged_array = []
+#   index1 = 0
+#   index2 = 0
 
-  while merged_array.length < (array1.length + array2.length)
-    puts array1[index1]
-    puts array2[index2]
-    if array2[index2] == nil
-      merged_array << array1[index1]
-    elsif array1[index1] < array2[index2]
-      merged_array << array1[index1]
-      index1 += 1
-    else
-      merged_array << array2[index2]
-      index2 += 1
-    end
-  end
-  merged_array
-end
+#   while merged_array.length < (array1.length + array2.length)
+#     puts array1[index1]
+#     puts array2[index2]
+#     if array2[index2] == nil
+#       merged_array << array1[index1]
+#     elsif array1[index1] < array2[index2]
+#       merged_array << array1[index1]
+#       index1 += 1
+#     else
+#       merged_array << array2[index2]
+#       index2 += 1
+#     end
+#   end
+#   merged_array
+# end
 
-p merge_two_arrays([1, 5, 8], [6, 9])
+# p merge_two_arrays([1, 5, 8], [6, 9])
 
 # pseudocode
 
@@ -1094,7 +1073,7 @@ p merge_two_arrays([1, 5, 8], [6, 9])
 # while loop to iterate through the first index array1[index]
 #
 
-# def merge_two_arrays(array1, array2)
+# def merge_two_arrays(array1, array2) # not right
 #   merged_array = []
 #   index = 0
 #   # index2 = 0
@@ -1110,6 +1089,101 @@ p merge_two_arrays([1, 5, 8], [6, 9])
 
 # p merge_two_arrays([1, 5, 8], [6, 9])
 
+# def merged_sorted_arrays(input_array_one, input_array_two)
+#   index_one = 0
+#   index_two = 0
+#   result = []
+
+#   if input_array_one.length > input_array_two.length
+#     longer_array = input_array_one
+#     shorter_array = input_array_two
+#   else
+#     longer_array = input_array_two
+#     shorter_array = input_array_one
+#   end
+
+#   while index_one < longer_array.length || index_two < shorter_array.length
+#     if longer_array[index_one] == nil
+#       result << shorter_array[index_two]
+#       index_two += 1
+#     elsif longer_array[index_one] < shorter_array[index_two]
+#       result << longer_array[index_one]
+#       index_one += 1
+#     else
+#       result << shorter_array[index_two]
+#       index_two += 1
+#     end
+#   end
+#   result
+# end
+
+# p merged_sorted_arrays([1, 5, 8], [6, 9])
+
+# Given an array of numbers, return true if the array is a "100 Coolio Array", or false if it is not.
+
+# A "100 Coolio Array" meets the following criteria:
+
+# Its first and last numbers add up to 100,
+# Its second and second-to-last numbers add up to 100,
+# Its third and third-to-last numbers add up to 100,
+# and so on and so forth.
+
+# Here are examples of 100 Coolio Arrays:
+
+# [1, 2, 3, 97, 98, 99]
+# [90, 20, 70, 100, 30, 80, 10]
+
+# create a method => coolio, 'array' parameter
+# index = 0
+# index2 = array.length - 1
+
+# while loop through array
+# if array of index and index2 are 100
+# increment index / index2
+# else
+# return false
+# end
+# end
+
+# def coolio(array) # not right
+#   index = 0
+#   index2 = array.length - 1
+
+#   while index < array.length || index2 >= array.length
+#     if array[index] + array[index2] == 100
+#       index += 1
+#       index -= 1
+#       return true
+#     else
+#       return false
+#     end
+#   end
+# end
+
+# p coolio([1, 2, 3, 97, 98, 99])
+
+# longest common prefix
+
+# def longest_common_prefix(words_array)
+#   current_longest_prefix = ""
+#   letter_index = 0
+#   while true
+#     word_index = 1
+#     while word_index < words_array.length
+#       current_letter = words_array[0][letter_index]
+#       return current_longest_prefix if current_letter.nil? || words_array[word_index][letter_index] != current_letter
+
+#       word_index += 1
+#     end
+
+#     current_longest_prefix << current_letter
+#     letter_index += 1
+#   end
+# end
+
+# p longest_common_prefix(["flower", "flow", "flight"])
+
+# most frequent letter
 # Given a string, find the most commonly occurring letter.
 
 # Input: “peter piper picked a peck of pickled peppers”
@@ -1167,30 +1241,657 @@ p merge_two_arrays([1, 5, 8], [6, 9])
 # p common_letter("peter piper picked a peck of pickled peppers")
 
 # count how many there are in a hash
-hash = { "p" => 9, "e" => 8, "t" => 1, "r" => 3, "i" => 3, " " => 7, "c" => 3, "d" => 2, "a" => 1, "o" => 1, "f" => 1, "l" => 1, "s" => 1 }
+# hash = { "p" => 9, "e" => 8, "t" => 1, "r" => 3, "i" => 3, " " => 7, "c" => 3, "d" => 2, "a" => 1, "o" => 1, "f" => 1, "l" => 1, "s" => 1 }
 
-def frequent_letter(string)
-  letter_counts = {}
-  index = 0
-  most_frequent_letter = ""
-  most_frequent_count = 0
+# def frequent_letter(string)
+#   letter_counts = {}
+#   index = 0
+#   most_frequent_letter = ""
+#   most_frequent_count = 0
 
-  while index < string.length
-    if letter_counts[string[index]]
-      letter_counts[string[index]] += 1
-    else
-      letter_counts[string[index]] = 1
+#   while index < string.length
+#     if letter_counts[string[index]]
+#       letter_counts[string[index]] += 1
+#     else
+#       letter_counts[string[index]] = 1
+#     end
+
+#     if letter_counts[string[index]] > most_frequent_count
+#       most_frequent_count = letter_counts[string[index]]
+#       most_frequent_letter = string[index]
+#     end
+
+#     index += 1
+#   end
+
+#   return most_frequent_letter
+# end
+
+# p frequent_letter("peter piper picked a peck of pickled peppers")
+
+# count votes
+
+# Given an array of strings, return a hash that provides of a count of how many times each string occurs.
+
+# Input: ["Dewey", "Truman", "Dewey", "Dewey", "Truman", "Truman", "Dewey", "Truman", "Truman", "Dewey", "Dewey"]
+
+# Output: {"Dewey" => 6, "Truman" => 5}
+
+# Explanation: "Dewey" occurs 6 times in the array, while "Truman" occurs 5 times.
+
+# method => count_votes, 'array'
+# create a hash from the array =
+# hash = { "Dewey" => 6, "Truman" => 5 }
+# create an empty hash, d_count = 0, t_count = 0
+# index = 0
+# while loop through the hash
+# if hash[dewey] < hash[index]
+# add to d_count
+# else
+# add to t_count
+#
+# index += 1
+# end
+
+# def count_votes(string) # wrong answer
+#   d_count = 0
+#   t_count = 0
+#   index = 0
+
+#   while index < string.length
+#     if string[0] == string[index]
+#       d_count += 1
+#     else
+#       t_count += 1
+#     end
+#     index += 1
+#   end
+# end
+
+# p count_votes(["Dewey", "Truman", "Dewey", "Dewey", "Truman", "Truman", "Dewey", "Truman", "Truman", "Dewey", "Dewey"])
+
+# def count_votes(input_array)
+#   result = {}
+#   index_one = 0
+#   while index_one < input_array.length
+#     if (!result[input_array[index_one]])
+#       result[input_array[index_one]] = 1
+#     else
+#       result[input_array[index_one]] += 1
+#     end
+#     index_one += 1
+#   end
+#   result
+# end
+
+# p count_votes(["Dewey", "Truman", "Dewey", "Dewey", "Truman", "Truman", "Dewey", "Truman", "Truman", "Dewey", "Dewey"])
+
+# order the whole menu
+# Given a hash, where the keys are strings representing food items, and the values are numbers representing the price of each food, return the amount someone would pay if they'd order one of each food from the entire menu.
+
+# Input: {"hot dog" => 2, "hamburger" => 3, "steak sandwich" => 5, "fries" => 1, "cole slaw" => 1, "soda" => 2}
+
+# Output: 14
+
+# Explanation: If someone would order one of everything on the menu, they'd pay a total of 14 (the sum of all the hash's values).
+
+# def total_price(array) # can't work cause nil can't be coerced int integer for price += array[1]
+#   index = 0
+#   price = 0
+#   if index < array.length
+#     price += array[1]
+#     index += 1
+#   end
+#   price
+# end
+
+# p total_price(["hot dog" => 2, "hamburger" => 3, "steak sandwich" => 5, "fries" => 1, "cole slaw" => 1, "soda" => 2])
+
+# def order_menu(input_hash)
+#   result = 0
+#   input_hash.each do |item, value|
+#     result += input_hash[item]
+#   end
+#   result
+# end
+
+# p order_menu({ "hot dog" => 2, "hamburger" => 3, "steak sandwich" => 5, "fries" => 1, "cole slaw" => 1, "soda" => 2 })
+
+# popular posts
+
+# Given an array of hashes that represent a list of social media posts, return a new array that only contains the posts that have at least 1000 likes.
+
+# Input: [
+# {title: 'Me Eating Pizza', submitted_by: "Joelle P.", likes: 1549},
+# {title: 'i never knew how cool i was until now', submitted_by: "Lyndon Johnson", likes: 3},
+# {title: 'best selfie evar!!!', submitted_by: "Patti Q.", likes: 1092},
+# {title: 'Mondays are the worst', submitted_by: "Aunty Em", likes: 644}
+# ]
+
+# Output: [
+# {title: 'Me Eating Pizza', submitted_by: "Joelle P.", likes: 1549},
+# {title: 'best selfie evar!!!', submitted_by: "Patti Q.", likes: 1092},
+# ]
+
+# method, array
+# new_array
+# index
+
+# def large_posts(array)
+#   new_array = []
+#   index = 0
+#   while index < array.length
+#     if array[index][:likes] > 1000
+#       new_array << array[index]
+#     end
+#     index += 1
+#   end
+#   new_array
+# end
+
+# def large_posts(array)
+#   new_array = []
+#   array.each do |arr|
+#     if arr[:likes] > 1000
+#       new_array << { title: arr[:title], submitted_by: arr[:submitted_by], likes: arr[:likes] }
+#     end
+#   end
+#   new_array
+# end
+
+# p large_posts([
+#     { title: "Me Eating Pizza", submitted_by: "Joelle P.", likes: 1549 },
+#     { title: "i never knew how cool i was until now", submitted_by: "Lyndon Johnson", likes: 3 },
+#     { title: "best selfie evar!!!", submitted_by: "Patti Q.", likes: 1092 },
+#     { title: "Mondays are the worst", submitted_by: "Aunty Em", likes: 644 },
+#   ])
+
+# description
+# Given a DNA strand, return its RNA complement (per RNA transcription).
+
+# Both DNA and RNA strands are a sequence of nucleotides. Here we're representing the sequences with single-letter characters (e.g. a sample strand may look like: "AGCA".)
+
+# Given a string representing a DNA strand, provide its transcribed RNA strand, according to the following pattern:
+
+# G becomes C
+# C becomes G
+# T becomes A
+# A becomes U
+
+# So based on all this, here's a sample input/output:
+
+# Input: 'ACGTGGTCTTAA'
+# Output: 'UGCACCAGAAUU'
+
+# method rna_transcription, 'string'
+# new_string = ""
+# index = 0
+
+# def rna_transcription(string) # wrong answer
+#   new_string = ""
+#   index = 0
+#   while index < string.length
+#     string["G"] = "C"
+#     string["C"] = "G"
+#     string["T"] = "A"
+#     string["A"] = "U"
+#     new_string += string
+#     index += 1
+#   end
+#   new_string
+# end
+
+# p rna_transcription("ACGTGGTCTTAA")
+
+# def rna_transcription(string)
+#   rna_transcription = { "G" => "C", "C" => "G", "T" => "A", "A" => "U" }
+#   result = ""
+#   index = 0
+#   while index < string.length
+#     result += rna_transcription[string[index]]
+#     index += 1
+#   end
+#   result
+# end
+
+# p rna_transcription("ACGTGGTCTTAA")
+
+# complete the data I
+# Given an array of social media posts and a hash of users, return a list of posts (as an array of hashes) that replaces the submitted_by id number as the person's actual name.
+
+# For example, given this array of posts (note that the submitted_by is an id number):
+
+# [
+# {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
+# {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
+# {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
+# {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
+# ]
+
+# And this hash of users (the key is the id number and the value is the user's real name):
+
+# users = { 403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q." }
+
+# Return the array of posts as follows:
+
+# [
+# {title: 'Me Eating Pizza', submitted_by: "Joelle P.", likes: 1549},
+# {title: 'i never knew how cool i was until now', submitted_by: "Lyndon Johnson", likes: 3},
+# {title: 'best selfie evar!!!', submitted_by: "Patti Q.", likes: 1092},
+# {title: 'Mondays are the worst', submitted_by: "Aunty Em", likes: 644}
+# ]
+
+# def complete_the_data_one(post_hash)
+#   users = { 403 => "Aunty Em", 231 => "Joelle P.", 989 => "Lyndon Johnson", 111 => "Patti Q." }
+#   post_hash.each do |post|
+#     post[:submitted_by] = users[post[:submitted_by]]
+#   end
+#   return post_hash
+# end
+
+# p complete_the_data_one([
+#     { title: "Me Eating Pizza", submitted_by: 231, likes: 1549 },
+#     { title: "i never knew how cool i was until now", submitted_by: 989, likes: 3 },
+#     { title: "best selfie evar!!!", submitted_by: 111, likes: 1092 },
+#     { title: "Mondays are the worst", submitted_by: 403, likes: 644 },
+#   ])
+
+# Anagrams
+# Given two strings, return true if they are anagrams of each other, and false if they are not. An anagram is a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
+
+# Do not use any built-in sort methods.
+
+# Input: “silent”, “listen”
+# Output: true
+
+# Input: “frog”, “bear”
+# Output: false
+
+# method => anagrams, 'string1', 'string2' parameter
+# index = 0
+# index2 = 0
+# anagrams = true, to see if it's true or false
+# while loop to iterate through string
+#
+
+# def anagrams(string1, string2) # makes noo sense
+#   index = 0
+#   index2 = 0
+#   anagrams = true
+#   while index < string1.length
+#     while index2 < string2.length
+#       if string1[index] == string2
+#         return anagrams
+#         index2 += 1
+#       end
+#       index += 1
+#     end
+#   end
+#   return false
+# end
+
+# p anagrams("silent", "listen")
+
+# def anagrams(input_string_one, input_string_two)
+#   anagram_letters = {}
+#   index_one = 0
+#   while index_one < input_string_one.length
+#     anagram_letters[input_string_one[index_one]] = 1
+#     index_one += 1
+#   end
+
+#   index_two = 0
+#   while index_two < input_string_two.length
+#     if !anagram_letters[input_string_two[index_two]]
+#       return false
+#     end
+#     index_two += 1
+#   end
+#   return true
+# end
+
+# p anagrams("silent", "listen")
+# p anagrams("frog", "bear")
+
+# ETL #1 in list data transformations
+# You are given two parameters, an array and a number. Return a hash whose keys are each of the values from the array parameter, and whose values are the number parameter.
+
+# Input:
+
+# First argument: ["a", "e", "i", "o", "u"]
+# Second argument: 1
+
+# Output:
+
+# {
+# 'a' => 1,
+# 'e' => 1,
+# 'i' => 1,
+# 'o' => 1,
+# 'u' => 1
+# }
+
+# def etl1(input_array, input_number)
+#   result = {}
+#   index = 0
+#   while index < input_array.length
+#     result[input_array[index]] = input_number
+#     index += 1
+#   end
+#   result
+# end
+
+# p etl1(["a", "e", "i", "o", "u"], 1)
+
+# flatten hash
+# Given a hash, return a flat array containing all the hash’s keys and values.
+
+# Input: {“a” => 1, “b” => 2, “c” => 3, “d” => 4}
+# Output: [“a”, 1, “b”, 2, “c”, 3, “d”, 4]
+
+# index = 0
+# new_array = []
+
+# def flatten_hash(input_hash)
+#   result = []
+#   input_hash.each do |key, value|
+#     result << key
+#     result << value
+#   end
+#   result
+# end
+
+# p flatten_hash({ "a" => 1, "b" => 2, "c" => 3, "d" => 4 })
+
+# flip hash
+# Given a hash, create a new hash that has the keys and values switched.
+
+# Input: {"a" => 1, "b" => 2, "c" => 3}
+# Output: {1 => "a", 2 => "b", 3 => "c"}
+
+# result = {}
+# |value, key|
+
+# def flip_hash(input_hash)
+#   result = {}
+#   input_hash.each do |key, value|
+#     result[value] = key
+#   end
+#   result
+# end
+
+# p flip_hash({ "a" => 1, "b" => 2, "c" => 3 })
+
+# ETL #2
+# You are given a hash in format #A, and you are to return the same data as a hash using format #B, as specified below:
+
+# Input:
+
+# {
+# 1 => ["A", "E", "I", "O", "U"]
+# }
+
+# Output:
+
+# {
+# 'a' => 1,
+# 'e' => 1,
+# 'i' => 1,
+# 'o' => 1,
+# 'u' => 1
+# }
+# Input:
+
+# {
+# 1 => ["A", "E"],
+# 2 => ["D", "G"]
+# }
+
+# Output:
+
+# {
+# 'a' => 1,
+# 'd' => 2,
+# 'e' => 1,
+# 'g' => 2
+# }
+
+# Input:
+
+# {
+# 1 => ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"],
+# 2 => ["D", "G"],
+# 3 => ["B", "C", "M", "P"],
+# 4 => ["F", "H", "V", "W", "Y"],
+# 5 => ["K"],
+# 8 => ["J", "X"],
+# 10 => ["Q", "Z"]
+# }
+
+# Output:
+
+# {
+# 'a' => 1,
+# 'b' => 3,
+# 'c' => 3,
+# 'd' => 2,
+# 'e' => 1,
+# 'f' => 4,
+# 'g' => 2,
+# 'h' => 4,
+# 'i' => 1,
+# 'j' => 8,
+# 'k' => 5,
+# 'l' => 1,
+# 'm' => 3,
+# 'n' => 1,
+# 'o' => 1,
+# 'p' => 3,
+# 'q' => 10,
+# 'r' => 1,
+# 's' => 1,
+# 't' => 1,
+# 'u' => 1,
+# 'v' => 4,
+# 'w' => 4,
+# 'x' => 8,
+# 'y' => 4,
+# 'z' => 10
+# }
+
+# def etl2(input_hash)
+#   result = {}
+#   input_hash.each do |key, value|
+#     value.each do |element|
+#       result[element.downcase] = key
+#     end
+#   end
+#   result
+# end
+
+# p etl2({
+#     1 => ["A", "E", "I", "O", "U"],
+#   })
+# p etl2({
+#     1 => ["A", "E"],
+#     2 => ["D", "G"],
+#   })
+# p etl2({
+#     1 => ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"],
+#     2 => ["D", "G"],
+#     3 => ["B", "C", "M", "P"],
+#     4 => ["F", "H", "V", "W", "Y"],
+#     5 => ["K"],
+#     8 => ["J", "X"],
+#     10 => ["Q", "Z"],
+#   })
+
+# complete the data II
+# Given an array of social media posts and an array of users, return a list of posts (as an array of hashes) that replaces the submitted_by id number as the person's actual name.
+
+# For example, given this array of posts (note that the submitted_by is an id number):
+
+# [
+# {title: 'Me Eating Pizza', submitted_by: 231, likes: 1549},
+# {title: 'i never knew how cool i was until now', submitted_by: 989, likes: 3},
+# {title: 'best selfie evar!!!', submitted_by: 111, likes: 1092},
+# {title: 'Mondays are the worst', submitted_by: 403, likes: 644}
+# ]
+
+# And this array of users:
+
+# [
+# {user_id: 403, name: "Aunty Em"},
+# {user_id: 231, name: "Joelle P."},
+# {user_id: 989, name: "Lyndon Johnson"},
+# {user_id: 111, name: "Patti Q."},
+# ]
+
+# Return the array of posts as follows:
+
+# [
+# {title: 'Me Eating Pizza', submitted_by: "Joelle P.", likes: 1549},
+# {title: 'i never knew how cool i was until now', submitted_by: "Lyndon Johnson", likes: 3},
+# {title: 'best selfie evar!!!', submitted_by: "Patti Q.", likes: 1092},
+# {title: 'Mondays are the worst', submitted_by: "Aunty Em", likes: 644}
+# ]
+
+# def complete_the_data_2(input_post_array, input_user_array)
+#   input_post_array.each do |post|
+#     input_user_array.each do |user|
+#       if post[:submitted_by] == user[:user_id]
+#         post[:submitted_by] = user[:name]
+#       end
+#     end
+#   end
+#   input_post_array
+# end
+
+# post_array = [
+#   { title: "Me Eating Pizza", submitted_by: 231, likes: 1549 },
+#   { title: "i never knew how cool i was until now", submitted_by: 989, likes: 3 },
+#   { title: "best selfie evar!!!", submitted_by: 111, likes: 1092 },
+#   { title: "Mondays are the worst", submitted_by: 403, likes: 644 },
+# ]
+
+# user_array = [
+#   { user_id: 403, name: "Aunty Em" },
+#   { user_id: 231, name: "Joelle P." },
+#   { user_id: 989, name: "Lyndon Johnson" },
+#   { user_id: 111, name: "Patti Q." },
+# ]
+
+# p complete_the_data_2(post_array, user_array)
+
+# book organizer
+# Given a list of books provided in this format:
+
+# [
+# {title: "The Lord of the Rings", author: "J. R. R. Tolkien", year: 1954 },
+# {title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960 },
+# {title: "1984", author: "George Orwell", year: 1949 },
+# {title: "Go Set a Watchman", author: "Harper Lee", year: 2015 },
+# {title: "The Hobbit", author: "J. R. R. Tolkien", year: 1937 },
+# {title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925 },
+# {title: "The Two Towers", author: "J. R. R. Tolkien", year: 1954 }
+# ]
+
+# return the data in this new author-centric format:
+
+# { "J. R. R. Tolkien" => [
+# {title: "The Lord of the Rings", year: 1954 },
+# {title: "The Hobbit", year: 1937 },
+# {title: "The Two Towers", year: 1954 }
+# ],
+# "Harper Lee" => [
+# {title: "To Kill a Mockingbird", year: 1960 },
+# {title: "Go Set a Watchman", year: 2015 }
+# ],
+# "George Orwell" => [
+# {title: "1984", year: 1949 }
+# ],
+# "F. Scott Fitzgerald" => [
+# {title: "The Great Gatsby", year: 1925 }
+# ]
+# }
+
+# def book_organizer(input_book_array)
+#   result = {}
+#   input_book_array.each do |book|
+#     if !result[book[:author]]
+#       result[book[:author]] = [{ title: book[:title], year: book[:year] }]
+#     else
+#       result[book[:author]] << { title: book[:title], year: book[:year] }
+#     end
+#   end
+#   result
+# end
+
+# book_array = [
+#   { title: "The Lord of the Rings", author: "J. R. R. Tolkien", year: 1954 },
+#   { title: "To Kill a Mockingbird", author: "Harper Lee", year: 1960 },
+#   { title: "1984", author: "George Orwell", year: 1949 },
+#   { title: "Go Set a Watchman", author: "Harper Lee", year: 2015 },
+#   { title: "The Hobbit", author: "J. R. R. Tolkien", year: 1937 },
+#   { title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925 },
+#   { title: "The Two Towers", author: "J. R. R. Tolkien", year: 1954 },
+# ]
+
+# p book_organizer(book_array)
+
+# etl #3
+# Given an array of Youtube videos, for example:
+
+# [
+# {title: 'How to Make Wood', author_id: 4, views: 6},
+# {title: 'How to Seem Perfect', author_id: 4, views: 111},
+# {title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202},
+# {title: 'Why Pigs Stink', author_id: 1, views: 12}
+# ]
+
+# and an array of authors, for example:
+
+# [
+# {id: 1, first_name: 'Jazz', last_name: 'Callahan'},
+# {id: 2, first_name: 'Ichabod', last_name: 'Loadbearer'},
+# {id: 3, first_name: 'Saron', last_name: 'Kim'},
+# {id: 4, first_name: 'Teena', last_name: 'Burgess'},
+# ]
+
+# Return a new array of videos in the following format, and only include videos that have at least 100 views:
+
+# [
+# {title: 'How to Seem Perfect', views: 111, author_name: 'Teena Burgess' }
+# {title: 'Review of the New "Unbreakable Mug"', views: 202, author_name: 'Ichabod Loadbearer' },
+# ]
+
+def etl3(input_video_array, input_author_array)
+  result = []
+
+  input_video_array.each do |video|
+    input_author_array.each do |author|
+      if video[:views] >= 100
+        if video[:author_id] == author[:id]
+          author_name = author[:first_name] + " " + author[:last_name]
+          result << { title: video[:title], views: video[:views], author_name: author_name }
+        end
+      end
     end
-
-    if letter_counts[string[index]] > most_frequent_count
-      most_frequent_count = letter_counts[string[index]]
-      most_frequent_letter = string[index]
-    end
-
-    index += 1
   end
-
-  return most_frequent_letter
+  result
 end
 
-p frequent_letter("peter piper picked a peck of pickled peppers")
+video_array = [
+  { title: "How to Make Wood", author_id: 4, views: 6 },
+  { title: "How to Seem Perfect", author_id: 4, views: 111 },
+  { title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202 },
+  { title: "Why Pigs Stink", author_id: 1, views: 12 },
+]
+author_array = [
+  { id: 1, first_name: "Jazz", last_name: "Callahan" },
+  { id: 2, first_name: "Ichabod", last_name: "Loadbearer" },
+  { id: 3, first_name: "Saron", last_name: "Kim" },
+  { id: 4, first_name: "Teena", last_name: "Burgess" },
+]
+
+p etl3(video_array, author_array)
