@@ -1162,6 +1162,27 @@
 
 # p coolio([1, 2, 3, 97, 98, 99])
 
+# def coolio(array)
+#   index_one = 0
+#   back_pointer = array.length - 1
+#   coolio = false
+#   while index_one < array.length / 2
+#     if array[index_one] + array[back_pointer] == 100
+#       coolio = true
+#       index_one += 1
+#       back_pointer -= 1
+#     else
+#       coolio = false
+#       break
+#     end
+#   end
+#   coolio
+# end
+
+# p coolio([1, 2, 3, 97, 98, 99])
+# p coolio([90, 20, 70, 100, 30, 80, 10])
+# p coolio([90, 20, 70, 100, 30, 80, 1])
+
 # longest common prefix
 
 # def longest_common_prefix(words_array)
@@ -1264,7 +1285,7 @@
 #     index += 1
 #   end
 
-#   return most_frequent_letter
+#   most_frequent_letter
 # end
 
 # p frequent_letter("peter piper picked a peck of pickled peppers")
@@ -1397,6 +1418,14 @@
 #     end
 #   end
 #   new_array
+# end
+
+# def large_posts(array) # it has nil in between the answers
+#   new_array = array.map do |arr|
+#     if arr[:likes] >= 1000
+#       arr
+#     end
+#   end
 # end
 
 # p large_posts([
@@ -1547,7 +1576,7 @@
 #     end
 #     index_two += 1
 #   end
-#   return true
+#   true
 # end
 
 # p anagrams("silent", "listen")
@@ -1865,33 +1894,301 @@
 # {title: 'Review of the New "Unbreakable Mug"', views: 202, author_name: 'Ichabod Loadbearer' },
 # ]
 
-def etl3(input_video_array, input_author_array)
-  result = []
+# def etl3(input_video_array, input_author_array)
+#   result = []
 
-  input_video_array.each do |video|
-    input_author_array.each do |author|
-      if video[:views] >= 100
-        if video[:author_id] == author[:id]
-          author_name = author[:first_name] + " " + author[:last_name]
-          result << { title: video[:title], views: video[:views], author_name: author_name }
-        end
-      end
+#   input_video_array.each do |video|
+#     input_author_array.each do |author|
+#       if video[:views] >= 100
+#         if video[:author_id] == author[:id]
+#           author_name = author[:first_name] + " " + author[:last_name]
+#           result << { title: video[:title], views: video[:views], author_name: author_name }
+#         end
+#       end
+#     end
+#   end
+#   result
+# end
+
+# video_array = [
+#   { title: "How to Make Wood", author_id: 4, views: 6 },
+#   { title: "How to Seem Perfect", author_id: 4, views: 111 },
+#   { title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202 },
+#   { title: "Why Pigs Stink", author_id: 1, views: 12 },
+# ]
+# author_array = [
+#   { id: 1, first_name: "Jazz", last_name: "Callahan" },
+#   { id: 2, first_name: "Ichabod", last_name: "Loadbearer" },
+#   { id: 3, first_name: "Saron", last_name: "Kim" },
+#   { id: 4, first_name: "Teena", last_name: "Burgess" },
+# ]
+
+# p etl3(video_array, author_array)
+
+# array intersection
+# Given two arrays, return a new array that contains the intersection of the two arrays. The intersection means the values that are contained in both of the arrays. Do not use the "&", or any built-in intersection methods.
+
+# NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+# Input: [1, 2, 3, 4, 5], [1, 3, 5, 7, 9]
+# Output: [1, 3, 5]
+
+# method -> array_intersection, 'array1' 'array2'
+# index1 = 0
+# idex2 = 0
+# new_array = []
+# while loop to compare if first number of array1 exists in array2
+# increment index2
+# go through the numbers in array2 first still comparing it to the first number of array1
+# shovel in to empty_array if it exists
+# move to the next number 2, which is the second number in array1
+# increment until we go through all five number
+
+# def array_intersection(array1, array2) # wrong answer
+#   new_array = []
+#   index1 = 0
+#   index2 = 0
+#   while index1 < array1.length
+#     while index2 < array2.length
+#       if array1[index1] == array2[index2]
+#         new_array << array1[index1]
+#       end
+#       index2 += 1
+#     end
+#     index1 += 1
+#   end
+#   new_array
+# end
+
+# p array_intersection([1, 2, 3, 4, 5], [1, 3, 5, 7, 9])
+
+# def array_intersection(input_array_one, input_array_two)
+#   result_hash = {}
+#   result = []
+#   input_array_one.each do |number|
+#     if !result_hash[number]
+#       result_hash[number] = true
+#     end
+#   end
+#   input_array_two.each do |number|
+#     if !result_hash[number]
+#       result_hash[number] = true
+#     else
+#       result << number
+#     end
+#   end
+#   result
+# end
+
+# p array_intersection([1, 2, 3, 4, 5], [1, 3, 5, 7, 9])
+
+# array subset
+# Given two arrays, determine whether one is a subset of the other. It is considered a subset if all the values in one array are contained within the other.
+
+# NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+# Input: [1, 2, 3, 4, 5, 6], [6, 3, 2]
+# Output: true
+
+# Input: [1, 2, 3, 4, 5, 6], [6, 3, 7]
+# Output: false
+
+# def array_subset(input_array_one, input_array_two)
+#   subset_hash = {}
+#   input_array_one.each do |number|
+#     subset_hash[number] = true
+#   end
+#   input_array_two.each do |number|
+#     if !subset_hash[number]
+#       return false
+#     end
+#   end
+#   true
+# end
+
+# p array_subset([1, 2, 3, 4, 5, 6], [6, 3, 2])
+# p array_subset([1, 2, 3, 4, 5, 6], [6, 3, 7])
+
+# array duplicate
+# A given array has one pair of duplicate values. Return the first duplicate value.
+
+# NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+# Input: [5, 2, 9, 7, 2, 6]
+# Output: 2
+
+def array_duplicate(input_array)
+  duplicate_hash = {}
+  input_array.each do |number|
+    if !duplicate_hash[number]
+      duplicate_hash[number] = true
+    else
+      return number
     end
   end
-  result
 end
 
-video_array = [
-  { title: "How to Make Wood", author_id: 4, views: 6 },
-  { title: "How to Seem Perfect", author_id: 4, views: 111 },
-  { title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202 },
-  { title: "Why Pigs Stink", author_id: 1, views: 12 },
-]
-author_array = [
-  { id: 1, first_name: "Jazz", last_name: "Callahan" },
-  { id: 2, first_name: "Ichabod", last_name: "Loadbearer" },
-  { id: 3, first_name: "Saron", last_name: "Kim" },
-  { id: 4, first_name: "Teena", last_name: "Burgess" },
-]
+p array_duplicate([5, 2, 9, 7, 2, 6])
+p array_duplicate([5, 2, 5, 7, 2, 6])
+p array_duplicate([5, 2, 1, 7, 3, 6])
 
-p etl3(video_array, author_array)
+# missing letter
+# A given string contains all the letters from the alphabet except for one. Return the missing letter.
+
+# NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+# Input: “The quick brown box jumps over a lazy dog”
+# Output: “f”
+
+# def missing_letter(input_string)
+#   alphabet_hash = {}
+#   alphabet_string = "abcdefghijklmnopqrstuvwxyz"
+#   index = 0
+#   while index < input_string.length
+#     if !alphabet_hash[input_string[index].downcase]
+#       alphabet_hash[input_string[index]] = true
+#     end
+#     index += 1
+#   end
+#   index_two = 0
+#   while index_two < input_string.length
+#     if !alphabet_hash[alphabet_string[index_two]]
+#       return alphabet_string[index_two]
+#     end
+#     index_two += 1
+#   end
+# end
+
+# p missing_letter("The quick brown box jumps over a lazy dog")
+# p missing_letter("bcdefghijklmnopqrstuvwxyz")
+
+# first unique character
+# Given a string, find the first non-repeating character in it and return its index. If it doesn't exist, return -1.
+
+# NOTE: You must accomplish this in O(n) time. This is also known as linear time.
+
+# Examples:
+
+# s = "leetcode"
+# return 0.
+# (The "l" is the first character that only appears once in the string, and appears at index 0.)
+
+# s = "loveleetcode",
+# return 2.
+# (The "l" and "o" are repeated, so the first non-repeating character is the "v", which is at index 2.)
+
+# Note: You may assume the string contain only lowercase letters.
+
+# def first_unique_character(input_string)
+#   string_hash = {}
+#   index_one = 0
+#   while index_one < input_string.length
+#     if !string_hash[input_string[index_one]]
+#       string_hash[input_string[index_one]] = 1
+#     else
+#       string_hash[input_string[index_one]] += 1
+#     end
+#     index_one += 1
+#   end
+#   index_two = 0
+#   while index_two < input_string.length
+#     if string_hash[input_string[index_two]] == 1
+#       return input_string.index(input_string[index_two])
+#     end
+#     index_two += 1
+#   end
+# end
+
+# p first_unique_character("leetcode")
+# p first_unique_character("loveleetcode")
+
+# two sum II
+# This is the same exercise as Two Sum I, but you must now solve it in linear time.
+
+# Given an array of numbers, return a new array containing just two numbers (from the original array) that add up to the number 10. If there are no two numbers that add up to 10, return false.
+
+# Input: [2, 5, 3, 1, 0, 7, 11]
+# Output: [3, 7]
+
+# Input: [1, 2, 3, 4, 5]
+# Output: false (While 1, 2, 3, and 4 altogether add up to 10, we're seeking just one pair of numbers.)
+
+# def two_sum(array) # wrong answer
+#   index = 0
+#   index2 = 1
+#   new_array = []
+#   while index < array.length
+#     if array[index] + array[index2] == 10
+#       new_array << array[index]
+#       new_array << array[index2]
+#       index2 += 1
+#     end
+#     index += 1
+#   end
+#   new_array
+# end
+
+# p two_sum([2, 5, 3, 1, 0, 7, 11])
+
+# def two_sum(array)
+#   index_one = 0
+#   while index_one < array.length
+#     index_two = 0
+#     while index_two < array.length
+#       if array[index_one] != array[index_two]
+#         if array[index_one] + array[index_two] == 10
+#           return array[index_one], array[index_two]
+#         end
+#       end
+#       index_two += 1
+#     end
+#     index_one += 1
+#   end
+#   false
+# end
+
+# def two_sum(array)
+#   i = 0
+#   j = 1
+
+#   while i < array.length - 1
+#     j = i + 1
+#     while j < array.length
+#       return [array[i], array[j]] if array[i] + array[j] == 10
+
+#       j += 1
+#     end
+#     i += 1
+#   end
+#   false
+# end
+
+# p two_sum([2, 5, 3, 1, 0, 7, 11])
+# p two_sum([1, 2, 3, 4, 5])
+
+# This is very similar to ETL #3, but you must now accomplish the task in linear time (O(N)).
+
+# Given an array of Youtube videos, for example:
+
+# [
+# {title: 'How to Make Wood', author_id: 4, views: 6},
+# {title: 'How to Seem Perfect', author_id: 4, views: 111},
+# {title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202},
+# {title: 'Why Pigs Stink', author_id: 1, views: 12}
+# ]
+
+# and an array of authors, for example:
+
+# [
+# {id: 1, first_name: 'Jazz', last_name: 'Callahan'},
+# {id: 2, first_name: 'Ichabod', last_name: 'Loadbearer'},
+# {id: 3, first_name: 'Saron', last_name: 'Kim'},
+# {id: 4, first_name: 'Teena', last_name: 'Burgess'},
+# ]
+
+# Return a new array of videos in the following format, and only include videos that have at least 100 views:
+
+# [
+# {title: 'How to Seem Perfect', views: 111, author_name: 'Teena Burgess' }
+# {title: 'Review of the New "Unbreakable Mug"', views: 202, author_name: 'Ichabod Loadbearer' },
+# ]

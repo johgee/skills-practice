@@ -5,7 +5,7 @@
 # Output: [12, 15, 18, 20, 24, 30]
 # Explanation: (3 * 4, 3 * 5, 3 * 6, 4 * 5, 4 * 6, 5 * 6)
 
-# def products_of_pair(array)
+# def products_of_pair(array) # nil can't be coerced into integer
 #   new_array = []
 #   index = 0
 #   index2 = 1
@@ -19,7 +19,7 @@
 
 # p products_of_pair([3, 4, 5, 6])
 
-# def product(array)
+# def product(array) # this comes out to be 1
 #   total = 1
 
 #   array.each do |ele|
