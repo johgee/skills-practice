@@ -86,3 +86,31 @@
 # B : [6, 9]
 
 # Modified A : [1, 5, 6, 8, 9]
+
+def etl4(array)
+  result = {}
+  array.each do |video|
+    if !result[video[:author_id]]
+      result[video[:author_id]] = [{ first_name: author_array[:first_name], last_name: author_array[:last_name] }]
+    else
+      result[video[:author_id]] << { first_name: author_array[:first_name], last_name: author_array[:last_name] }
+    end
+  end
+  result
+end
+
+video_array = [
+  { title: "How to Make Wood", author_id: 4, views: 6 },
+  { title: "How to Seem Perfect", author_id: 4, views: 111 },
+  { title: 'Review of the New "Unbreakable Mug"', author_id: 2, views: 202 },
+  { title: "Why Pigs Stink", author_id: 1, views: 12 },
+]
+
+author_array = [
+  { id: 1, first_name: "Jazz", last_name: "Callahan" },
+  { id: 2, first_name: "Ichabod", last_name: "Loadbearer" },
+  { id: 3, first_name: "Saron", last_name: "Kim" },
+  { id: 4, first_name: "Teena", last_name: "Burgess" },
+]
+
+p etl4(video_array)
